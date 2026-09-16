@@ -2,11 +2,11 @@
 
 ### 🏁 Phase 1: Syntactic Transition ("C++ as an Enhanced C")
 *Transitioning from C to idiomatic C++ fundamentals.*
-- Flexible variable declarations and explicit typing (pointers, void* cast rules).
 - Stream I/O (`std::cin`, `std::cout`, `<iostream>`).
 - Pass-by-reference (`T&`) to eliminate heavy pointer syntax.
 - Dynamic memory management using `new`/`delete` and `new[]`/`delete[]`.
 - **Capstone Exercise:** Modular Dynamic Multidimensional Matrix Memory Manager.
+- Get used to the little differences between C and CPP
 
 ---
 
