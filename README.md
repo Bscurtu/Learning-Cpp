@@ -1,3 +1,13 @@
+## 📚 About This Repository
+
+This repository documents my personal journey toward mastering C++.
+
+The code here is not intended to represent production-quality software, nor is it continuously refactored to follow the latest best practices. Each exercise reflects my understanding at the time I wrote it and is part of my progression as I learn the language.
+
+Some solutions may be incomplete, inefficient, or use approaches that would not normally be recommended in production code. That is intentional. The purpose of this repository is to practice concepts, explore how C++ works, learn from mistakes, and build a stronger foundation over time.
+
+I am keeping the exercises and their original implementations as a record of my learning process—not just as a collection of ideal solutions.
+
 ## 🗺️ Learning Roadmap
 
 ### 🏁 Phase 1: Syntactic Transition ("C++ as an Enhanced C")
