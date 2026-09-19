@@ -12,48 +12,59 @@ While doing this path, I found out lots of things appart from what's in this Rea
 
 ## 🗺️ Learning Roadmap
 
-### 🏁 Phase 1: Syntactic Transition ("C++ as an Enhanced C")
-*Transitioning from C to idiomatic C++ fundamentals.*
-- Stream I/O (`std::cin`, `std::cout`, `<iostream>`).
-- Pass-by-reference (`T&`) to eliminate heavy pointer syntax.
-- Dynamic memory management using `new`/`delete` and `new[]`/`delete[]`.
-- **Capstone Exercise:** Modular Dynamic Multidimensional Matrix Memory Manager.
-- Get used to the little differences between C and CPP
+### 🟢 Phase 1: C++ Fundamentals
 
----
+Transitioning from C-style programming to core C++ syntax and resource handling.
 
-### 🧱 Phase 2: Object-Oriented Programming (OOP)
-*Structuring software with encapsulation, polymorphism, and operator overloading.*
-- Classes, access specifiers (`private`, `protected`, `public`), constructors, and destructors.
-- Operator overloading (`operator[]`, `operator+`, `operator<<`).
-- Inheritance, virtual functions, and dynamic polymorphism (`virtual`, `= 0`).
-- **Capstone Exercise:** Polymorphic Vehicular Traffic Simulation System with dynamic fleet management.
+- Stream I/O with `std::cin` and `std::cout`
+- Pass-by-reference with `T&`
+- Dynamic memory with `new`, `delete`, `new[]`, and `delete[]`
+- Matrix allocation, transposition, multiplication, and cleanup
 
----
+See [`P1/README.md`](P1/README.md).
 
-### 🛡️ Phase 3: Generic Programming & Robustness
-*Writing reusable, high-performance, and error-tolerant C++ code.*
-- Function & Class Templates (`template <typename T>`).
-- Structured exception handling (`try`, `catch`, `throw`, custom exception classes).
-- Standard Template Library (STL) basics (`std::vector`, `std::string`, iterators, algorithms).
-- **Capstone Exercise:** Generic Binary Search Tree (BST) with Custom Exceptions & STL Integration.
+### 🟡 Phase 2: Object-Oriented Programming
 
----
+Structuring data and behavior with classes and inheritance.
 
-### ⚡ Phase 4: Modern C++ Mastery (C++11 / C++14)
-*Leveraging modern C++ standard features for memory safety and zero-cost abstractions.*
-- Type inference (`auto`), uniform initialization (`{}`), and `nullptr`.
-- Smart Pointers (`std::unique_ptr`, `std::shared_ptr`, `std::make_unique`) for strict RAII.
-- Move Semantics, Rvalue references (`T&&`), and resource transferring with `std::move`.
-- Anonymous Lambda functions and STL algorithm callbacks.
-- **Capstone Exercise:** High-Performance Data Processing Pipeline utilizing RAII & Move Semantics.
+- Encapsulation, constructors, and destructors
+- Inheritance and virtual functions
+- Runtime polymorphism
+- Operator overloading
+- A polymorphic bookstore inventory exercise
 
----
+See [`P2/README.md`](P2/README.md).
 
-## 🚀 How to Build & Run
-To compile and test the code snippets in this repository, a C++17 (or later) compliant compiler is required (e.g., `g++` or `clang++`).
+### 🟠 Phase 3: Advanced OOP and Generic Programming
+
+Applying RAII, smart pointers, templates, and exception handling.
+
+- Abstract classes and pure virtual functions
+- `std::unique_ptr` and `std::make_unique`
+- Polymorphic collections
+- `constexpr` and `std::string_view`
+- Function and class templates
+- Basic exception handling
+
+See [`P3/README.md`](P3/README.md).
+
+### 🔴 Phase 4: Modern C++
+
+Exploring expressive algorithms, lambdas, move semantics, and manual resource ownership.
+
+- Lambda expressions and captures
+- STL algorithms and generic predicates
+- Copy and move semantics
+- The Rule of Five
+- RAII and resource ownership
+- A move-enabled data-processing pipeline
+
+See [`P4/README.md`](P4/README.md).
+
+## 🚀 How to Build and Run an Example
+
+A C++17-compatible compiler is recommended. For example:
 
 ```bash
-# Example compilation command using C++17 standard
-g++ -std=c++17 -Wall -Wextra main.cpp -o program
-./program
+g++ -std=c++17 -Wall -Wextra P4/lambdas/examples.cpp -o examples
+./examples
