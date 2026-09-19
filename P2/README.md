@@ -1,34 +1,30 @@
-# 🟡 Phase 2: Object-Oriented Programming (OOP) Fundamentals
+# 🟡 Phase 2: Object-Oriented Programming Fundamentals
 
-This phase shifts the paradigm from procedural programming to object-oriented design, focusing on structuring data and behaviors into cohesive, reusable objects.
-
----
+This phase moves from procedural programming to object-oriented design by grouping data and behavior into classes and using inheritance for specialization.
 
 ## 🧠 Core Concepts
 
-1. **Encapsulation & Classes:**
-   * Grouping data and methods using `class`.
-   * Restricting internal access using `private` and exposing safe interfaces via `public` access modifiers.
-2. **Constructors & Destructors:**
-   * Using parameterized constructors and initialization lists to properly set up objects upon creation.
-   * Understanding default virtual destructors for safe memory cleanup in class hierarchies.
-3. **Basic Inheritance:**
-   * Establishing "is-a" relationships (e.g., a `Library` *is a* `Store`, a `Fantasy` book *is a* `Book`).
-   * Reusing code by extending base classes into specialized derived classes.
-4. **Polymorphism & Virtual Functions:**
-   * Using the `virtual` keyword in base classes and `override` in derived classes to allow dynamic method dispatch (e.g., calling the correct `get_details()` based on the actual object type).
-5. **Operator Overloading:**
-   * Redefining standard operators like `operator[]` to allow custom classes to behave intuitively like arrays.
+- Encapsulation with `private` and `public` members
+- Constructors, member initialization, and destructors
+- Inheritance and “is-a” relationships
+- Virtual functions and runtime polymorphism
+- Virtual destructors in polymorphic base classes
+- Operator overloading, including `operator[]`
 
----
+## 🔥 Main Exercise: Polymorphic Bookstore Inventory
 
-## 🔥 Capstone Project: Polymorphic Bookstore Inventory
-
-### Objective
-Design an object-oriented inventory system that manages a hierarchy of bookstore items, demonstrating inheritance, dynamic dispatch, and custom operator overloading.
+The bookstore exercise models books with a base `Book` class and specialized genres such as `Fantasy`, `Mystery`, and `Romance`.
 
 ### Requirements
-1. **Class Hierarchy:** Create a base `Book` class with core attributes (id, name, stock, author) and virtual methods for printing details. Derive specific genres like `Fantasy`, `Mystery`, and `Romance`.
-2. **Polymorphic Behavior:** Override the `get_details()` method in the `Fantasy` class to include specific sub-genre enumerations (`High`, `Low`, `Urban`) using `switch` statements.
-3. **Inventory Management:** Implement a `Stock` class that manages a `std::vector<Book*>` holding dynamically allocated books (`new`).
-4. **Operator Overloading:** Overload the `operator[]` in the `Stock` class to allow fetching books directly by their index, implementing safe out-of-bounds checks in the main execution flow.
+
+1. Define a base `Book` class containing common information such as title, author, quantity, and identifier.
+2. Derive genre-specific classes from `Book` and override behavior where appropriate.
+3. Use a virtual destructor so derived books can be destroyed through a `Book*`.
+4. Store polymorphic books in a `Stock` collection and access them with `operator[]`.
+5. Check indices before access, or use a bounds-checked operation such as `std::vector::at()`.
+
+The current exercise uses raw pointers to make ownership and polymorphism visible. That also means the owner of each allocated book must eventually delete it; later phases demonstrate safer ownership with smart pointers.
+
+## Other Exercises
+
+The directory also contains smaller class and inheritance examples that support the concepts above.
