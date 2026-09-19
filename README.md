@@ -6,7 +6,9 @@ The code here is not intended to represent production-quality software, nor is i
 
 Some solutions may be incomplete, inefficient, or use approaches that would not normally be recommended in production code. That is intentional. The purpose of this repository is to practice concepts, explore how C++ works, learn from mistakes, and build a stronger foundation over time.
 
-I am keeping the exercises and their original implementations as a record of my learning process—not just as a collection of ideal solutions.
+I am keeping the exercises and their original implementations as a record of my learning process—not just as a collection of ideal solutions, I personally appreciate seeing how, through the practice and time, the code gets better and cleaner.
+Right now MakeFiles are not included as most exercises are not meant to be any app or feature, just specific and topic focused code to learn.
+While doing this path, I found out lots of things appart from what's in this Readme, specially while encountering problems with compilation. This repo is not intended to be any guide for others, just my little corner with code that improves quickly and I will always have access to have a look and remember the topics and details. Thanks for reading this!!
 
 ## 🗺️ Learning Roadmap
 
@@ -49,9 +51,10 @@ I am keeping the exercises and their original implementations as a record of my 
 ---
 
 ## 🚀 How to Build & Run
-To compile and test the code snippets in this repository, a C++14 (or later) compliant compiler is required (e.g., `g++` or `clang++`).
+To compile and test the code snippets in this repository, a C++17 (or later) compliant compiler is required (e.g., `g++` or `clang++`).
 
 ```bash
-# Example compilation command using C++14 standard
-g++ -std=c++14 -Wall -Wextra main.cpp -o program
+# Example compilation command using C++17 standard
+g++ -std=c++17 -Wall -Wextra main.cpp -o program
 ./program
+````` ``` ````
