@@ -1,34 +1,34 @@
-# 🟠 Phase 3: Advanced OOP, Memory Management & Modern C++
+# 🟠 Phase 3: Advanced OOP and Generic Programming
 
-This phase refines object-oriented architectures by introducing modern C++ memory safety (RAII), abstract classes, and compile-time evaluations, ensuring zero memory leaks and highly scalable code.
-
----
+This phase builds on object-oriented fundamentals with safer ownership, abstract interfaces, generic code, compile-time utilities, and exception handling.
 
 ## 🧠 Core Concepts
 
-1. **Smart Pointers & RAII:**
-   * Replacing raw pointers (`new`/`delete`) with `std::unique_ptr` and `std::make_unique` for strict ownership and automatic, leak-free memory deallocation.
-2. **Abstract Classes & Pure Virtual Functions:**
-   * Defining interfaces using pure virtual functions (e.g., `virtual void get_details() const = 0`), preventing the instantiation of the base class and forcing derived classes to implement specific behaviors.
-3. **True Polymorphic Collections:**
-   * Managing different derived objects (`DieselCar`, `PetrolCar`) through a single, unified container of base class pointers (`std::vector<std::unique_ptr<Car>>`).
-4. **Compile-Time Evaluation:**
-   * Utilizing `constexpr` and `std::string_view` to resolve operations (like converting Enums to Strings) at compile-time, reducing runtime overhead.
-5. **Dependency Management:**
-   * Mastering the compilation order using Forward Declarations (`class Name;`) in `.hpp` files and restricting `#include` directives to `.cpp` files to resolve circular dependencies.
+1. **RAII and smart pointers**
+   - Use `std::unique_ptr` and `std::make_unique` to express exclusive ownership and release resources automatically.
+2. **Abstract classes and pure virtual functions**
+   - Define interfaces with pure virtual functions and prevent direct construction of incomplete base types.
+3. **Polymorphic collections**
+   - Store different derived vehicle types in `std::vector<std::unique_ptr<Car>>`.
+4. **Compile-time utilities**
+   - Use `constexpr` and `std::string_view` for small conversions that can be evaluated at compile time.
+5. **Templates**
+   - Write reusable function and class templates, including a simple stack and lookup utility.
+6. **Exceptions**
+   - Validate input and report invalid operations with standard exceptions such as `std::invalid_argument` and `std::out_of_range`.
+7. **Header dependencies**
+   - Use forward declarations when a declaration is sufficient, and include complete definitions where they are required.
 
----
+## 🔥 Main Exercise: Smart Vehicle Inventory
 
-## 🔥 Capstone Project: Smart Vehicle Inventory System
-
-### Objective
-Build a robust, leak-free vehicle management system leveraging modern C++ smart pointers, pure polymorphism, and compile-time optimizations.
+The dealership exercise defines an abstract `Car` interface with concrete diesel and petrol implementations. An `Inventory` stores the vehicles through `std::unique_ptr<Car>` and validates input before creating them.
 
 ### Requirements
-1. **Abstract Base Class:** Design a `Car` base class with shared attributes (plate, seats, car body type) and a pure virtual method (`get_motor_name() = 0`) to enforce implementation in derived classes. Prevent code duplication by implementing common printing logic directly in the base class.
-2. **Derived Specializations:** Create `DieselCar` and `PetrolCar` classes that inherit from `Car`. Use `override` to implement their specific engine types.
-3. **Compile-Time Utilities:** Implement `constexpr std::string_view` functions to efficiently convert `DieselMotor` and `GasMotor` enumerations into readable strings.
-4. **Unified Inventory System:** Build an `Inventory` class that manages all vehicle types via a single `std::vector<std::unique_ptr<Car>>`. 
-5. **Safe Instantiation:** Implement factory-like creation methods (`create_car`) that validate input parameters before allocating new vehicles directly into the vector using `std::make_unique`.
-6. **Basic error handling:** Trying and catching errors when trying to create cars and stopping the creation if
-the parameters are not valid.
+
+- Define shared vehicle data in an abstract base class.
+- Implement `DieselCar` and `PetrolCar` with `override` methods.
+- Convert motor enumerations to text with `constexpr std::string_view` utilities.
+- Create vehicles with `std::make_unique` and store them in one polymorphic collection.
+- Throw and handle an exception when input is invalid.
+
+The `templates.hpp` file contains separate practice exercises for function templates, class templates, searching, and bounds-checked access.
