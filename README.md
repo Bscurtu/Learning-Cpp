@@ -57,4 +57,3 @@ To compile and test the code snippets in this repository, a C++17 (or later) com
 # Example compilation command using C++17 standard
 g++ -std=c++17 -Wall -Wextra main.cpp -o program
 ./program
-````` ``` ````
