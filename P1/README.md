@@ -1,30 +1,25 @@
-# 🟢 Phase 1: Syntactic Transition ("C++ as an Enhanced C")
+# 🟢 Phase 1: C++ Fundamentals
 
-This phase marks the transition from pure C to fundamental C++ syntax without introducing classes or object-oriented structures yet.
-
----
+This phase introduces core C++ syntax from a C programmer's perspective. The exercises remain procedural and do not yet use classes or object-oriented design.
 
 ## 🧠 Core Concepts
 
-1. **Flexible Declarations & Typing:**
-   * Variables can be declared anywhere inside a block right before usage.
-   * Explicit casting is strictly enforced for `void*` pointers.
-   * Argument-less functions are declared as `f()` instead of `f(void)`.
-2. **Stream Input/Output:**
-   * Replacing `printf` and `scanf` with `std::cin` and `std::cout` via `<iostream>`.
-3. **Pass by Reference (`T&`):**
-   * Direct variable aliases allowing parameter pass-by-reference without the heavy syntax of raw pointer dereferencing (`*`).
-4. **Dynamic Memory Allocation (`new`/`delete`):**
-   * Utilizing `new`, `delete`, and `delete[]` for dynamic block and array management instead of `malloc()` and `free()`.
+- Declaring variables close to where they are used
+- Differences between C and C++ function declarations, including `f()`
+- Stream I/O with `std::cin` and `std::cout`
+- Pass-by-reference with `T&`
+- Dynamic allocation with `new` and `delete`
+- Array allocation and cleanup with `new[]` and `delete[]`
 
----
+## 🔥 Main Exercise: Dynamic Matrix Manager
 
-## 🔥 Capstone Project: Multidimensional Dynamic Matrix Manager
-
-### Objective
-Build a modular C++ system (without using C++ classes) that manages 2D dynamic matrices through pointers-to-pointers (`double**`) and pass-by-reference.
+The matrix exercise uses `double**` and free functions to manage a dynamically allocated two-dimensional matrix without introducing a class.
 
 ### Requirements
-1. **Allocation:** Implement `void createMatrix(double** &m, int rows, int cols)` to dynamically allocate memory for an $N \times M$ matrix using dynamic pointer arrays and `new`.
-2. **Operations:** Write functions to populate the matrix with random values, calculate the transposed matrix, and perform matrix multiplication on compatible dimensions.
-3. **Deallocation:** Implement `void freeMatrix(double** &m, int rows)` to safely deallocate each row array and the outer pointer array using `delete[]`, setting the reference to `nullptr` to prevent dangling references.
+
+1. Implement `createMatrix(double**& matrix, int rows, int columns)` using an array of row pointers.
+2. Populate a matrix with values and implement operations such as transposition and multiplication where dimensions are compatible.
+3. Implement `freeMatrix(double**& matrix, int rows)` to delete every row, delete the outer pointer array, and set `matrix` to `nullptr`.
+4. Ensure that allocation failures and invalid dimensions do not leave partially allocated memory behind.
+
+This exercise intentionally practices manual memory management. Later phases replace many of these responsibilities with RAII and standard library types.
