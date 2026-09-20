@@ -7,8 +7,10 @@ The code here is not intended to represent production-quality software, nor is i
 Some solutions may be incomplete, inefficient, or use approaches that would not normally be recommended in production code. That is intentional. The purpose of this repository is to practice concepts, explore how C++ works, learn from mistakes, and build a stronger foundation over time.
 
 I am keeping the exercises and their original implementations as a record of my learning process—not just as a collection of ideal solutions, I personally appreciate seeing how, through the practice and time, the code gets better and cleaner.
-Right now MakeFiles are not included as most exercises are not meant to be any app or feature, just specific and topic focused code to learn.
-While doing this path, I found out lots of things appart from what's in this Readme, specially while encountering problems with compilation. This repo is not intended to be any guide for others, just my little corner with code that improves quickly and I will always have access to have a look and remember the topics and details. Thanks for reading this!!
+Right now MakeFiles are not included for basic exercises as most are topic-focused learning code rather than full applications.
+While doing this path, I found out lots of things apart from what's in this Readme, especially while encountering problems with compilation. This repo is not intended to be a guide for others, just my little corner with code that improves quickly and I will always have access to to remember topics and details. Thanks for reading this!!
+
+---
 
 ## 🗺️ Learning Roadmap
 
@@ -61,48 +63,40 @@ Exploring expressive algorithms, lambdas, move semantics, and manual resource ow
 
 See [`P4/README.md`](P4/README.md).
 
-# 🟣 Phase 5: Systems Programming, Binary I/O, and Networking
+### 🟣 Phase 5: Systems Programming, Binary I/O, and Networking
 
-Welcome to **Phase 5**. This module transitions from standard in-memory C++ programming to low-level Linux systems programming, raw memory manipulation, binary file handling, and network socket communication.
+Handling raw binary streams, memory serialization, and low-level Linux network programming.
 
-The goal of this phase is to understand how C++ interacts directly with the operating system kernel, disk storage, and network interfaces using POSIX APIs and standard binary streams.
+- Binary I/O streams using `std::ifstream` and `std::ofstream`
+- Memory layout & raw byte manipulation with `reinterpret_cast`
+- Binary serialization/deserialization with fixed-size `Header` framing
+- Low-level POSIX TCP Socket programming (`socket`, `bind`, `listen`, `accept`, `send`, `recv`)
 
----
-
-## 🎯 Key Learning Objectives
-
-1. **Binary Stream I/O & Memory Layout:**
-   - Writing and reading raw bytes directly to/from disk using `std::ofstream` and `std::ifstream` in `std::ios::binary` mode.
-   - Using `reinterpret_cast` to inspect memory layouts and bypass text-formatting overhead.
-   - Dynamic file size calculation using stream cursors (`seekg` and `tellg`).
-
-2. **Binary Framing & Serialization:**
-   - Understanding POD (Plain Old Data) structs versus heap-allocated types (`std::string`, `std::vector`) during memory dumps.
-   - Implementing binary data framing: Fixed-size `Header` (metadata) + Variable-length `Payload` (dynamic content).
-   - Safe deserialization using two-phase reading.
-
-3. **Linux Network Programming (POSIX Sockets):**
-   - Understanding the *"Everything is a file"* paradigm in Linux (File Descriptors).
-   - Setting up a TCP server lifecycle: `socket()`, `setsockopt()` (`SO_REUSEADDR`), `bind()`, `listen()`, `accept()`.
-   - Managing stream I/O over network interfaces with `recv()` (`MSG_WAITALL`) and `send()`.
-   - Distinguishing between listening sockets (`server_fd`) and connection sockets (`client_fd`).
+See [`P5/README.md`](P5/README.md).
 
 ---
 
-## 📂 Topic Breakdown & Code Progression
+## 🏆 Standalone Projects & Milestones
 
-### 1. Binary I/O and Dynamic File Measurement (`01_binary_io/`)
-- Demonstrates byte-level file persistence using `<fstream>`.
-- Calculates exact file byte lengths dynamically:
-  ```cpp
-  file.seekg(0, std::ios::end);
-  size_t size = file.tellg();
-  file.seekg(0, std::ios::beg);
+Beyond the step-by-step topic exercises, this section contains standalone, end-to-end applications built to combine multiple concepts learned across the roadmap.
 
-## 🚀 How to Build and Run an Example
+### 🌐 simplesHTTP — Static Web Server
+A dependency-free HTTP/1.1 web server built completely from scratch in modern C++ using Linux POSIX sockets.
 
-A C++17-compatible compiler is recommended. For example:
+- Hand-written TCP connection management and port reuse (`SO_REUSEADDR`).
+- Basic HTTP request line parsing (`GET` method and URI extraction).
+- Protocol serialization (`HttpResponse` abstraction with custom headers and status codes).
+- static asset serving (`HTML`) with path security validation (`..` traversal protection).
 
+See [`simplesHtTP/README.md`](simplesHtTP/README.md).
+
+---
+
+## 🚀 How to Build and Run
+
+A C++17-compatible compiler (such as `g++`) is recommended.
+
+### Running Phase Exercises (Single Files)
 ```bash
 g++ -std=c++17 -Wall -Wextra P4/lambdas/examples.cpp -o examples
 ./examples
