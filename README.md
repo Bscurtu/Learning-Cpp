@@ -61,6 +61,18 @@ Exploring expressive algorithms, lambdas, move semantics, and manual resource ow
 
 See [`P4/README.md`](P4/README.md).
 
+### 🟣 Phase 5: Systems Programming, Binary I/O, and Networking
+
+Handling raw binary streams, memory serialization, and low-level Linux network programming.
+
+- Binary I/O streams using `std::ifstream` and `std::ofstream`
+- Raw byte manipulation with `std::uint8_t` and `reinterpret_cast`
+- Dynamic file size calculation using `seekg()` and `tellg()`
+- Binary serialization and deserialization (Fixed-size Header + Variable-length Payload pattern)
+- Low-level Linux network programming with POSIX TCP Sockets (`socket`, `bind`, `listen`, `accept`)
+
+See [`P5/README.md`](P5/README.md).
+
 ## 🚀 How to Build and Run an Example
 
 A C++17-compatible compiler is recommended. For example:
