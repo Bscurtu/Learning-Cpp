@@ -25,4 +25,5 @@ int main()
         std::cout << static_cast<char>(byte);
     }
     std::cout << "\n";
+    return 0;
 }

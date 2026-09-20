@@ -7,4 +7,5 @@ int main()
     hola.save_to_file("file.txt");
     Packet create_from_file("file.txt");
     std::cout << "Original: " << hola.info << std::endl << "New: " << create_from_file.info << std::endl;
+    return 0;
 }

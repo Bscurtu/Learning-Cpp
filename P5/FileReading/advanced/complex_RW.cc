@@ -23,4 +23,5 @@ int main()
             std::cout << static_cast<char>(actual);
         }
     }
+    return 0;
 }

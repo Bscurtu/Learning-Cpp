@@ -8,4 +8,5 @@ int main()
     head.save_in("output.bin");
     Header create_from_file("output.bin");
     create_from_file.get_details();
+    return 0;
 }
